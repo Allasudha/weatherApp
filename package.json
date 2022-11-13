@@ -1,0 +1,29 @@
+{
+  "name": "Weather app",
+  "version": "1.0.0",
+  "description": "This is a simple example application developed using angular.js as frontend and Node.js as backend.",
+  "main": "app.js",
+  "scripts": {
+    "test": "test",
+    "test:watch": "jest --watch",
+    "test:ci": "jest --runInBand"
+  },
+  "jest": {
+    "verbose": true,
+    "moduleDirectories": [
+      "node_modules",
+      "app"
+    ]
+  },
+  "dependencies": {
+    "express": "^4.16.3"
+  },
+  "devDependencies": {
+    "angular-mocks": "^1.4.3",
+    "jasmine-core": "latest",
+    "jshint-stylish": "latest",
+    "karma": "latest",
+    "karma-chrome-launcher": "^3.1.1",
+    "karma-jasmine": "latest"
+  }
+}

@@ -1,0 +1,8 @@
+<div class="modal-header">
+    <h4 class="modal-title" id="modal-title">Multiple matches found for the city selected, please choose the specific city based on country</h4>
+</div>
+<div class="modal-body" id="modal-body"> 
+    <ul ng-repeat="(key, country) in modal.search.weatherDataGroupedByCountry">
+        <button ng-click="modal.byCountry(key)">{{country[0].name}},{{key}}</button>
+    </ul>
+</div>

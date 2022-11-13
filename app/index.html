@@ -1,0 +1,67 @@
+<!doctype html>
+<html lang="en" ng-app="weatherApp" ng-controller="MainCtrl as search">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="stylesheet" href="/app/css/bootstrap.min.css">
+  </head>
+
+  <body>
+      <div class="container mt-12">
+        <div class="header">
+            <h3><a>Weather App</a></h3>
+        </div>
+        <div ng-view="" id="ng-view" ></div>
+          <div class="col-sm-4 align-middle">
+              <label for="units">Units</label>
+              <select id="units" class="form-control" required
+                      ng-model="search.units">
+                  <option value="metric">Metric(°C)</option>
+                  <option value="imperial">Imperial(°F)</option>
+              </select>
+              <label for="city">City</label>
+              <input type="text" id="city" class="form-control" placeholder="select city"
+                     ng-model="search.city" auto-city required>
+              <button class="btn btn-primary btn-sm" style="margin-top: 16px"
+                      data-loading-text="Loading..." autocomplete="off"
+                      ng-disabled="form.$invalid || waiting" search-btn ng-click="search.buttonClick()">
+                  <span class="glyphicon glyphicon-search"></span>
+                  Search
+              </button>
+          </div>
+          <div ng-if="search.weatherData != null" class="card" style="width: 18rem;margin-top: 32px">
+            <div class="card-body">
+              <h5 class="card-title">{{search.weatherData.name}}</h5>
+              <div class="card-text">
+                {{search.weatherData.main.temp}} {{search.unitFlag}} <br/>
+                {{search.weatherData.weather[0].description}}
+              </div>
+            </div>
+          </div>
+          <div ng-if="search.notFoundError" class="card" style="width: 18rem;margin-top: 32px">
+            <div class="card-body">
+              <div class="card-text">
+                No data found for selected city
+              </div>
+            </div>
+          </div>
+      </div>
+  </div>
+	
+<script src="https://cdnjs.cloudflare.com/ajax/libs/lodash.js/4.17.21/lodash.min.js"></script>
+<script src="/bower_components/angular/angular.js"></script>
+<script src="/bower_components/json3/lib/json3.js"></script>
+<script src="/bower_components/es5-shim/es5-shim.js"></script>
+<script src="/bower_components/jquery/dist/jquery.js"></script>
+<script src="/bower_components/bootstrap/dist/js/bootstrap.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.4.0/angular-animate.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-bootstrap/2.2.0/ui-bootstrap-tpls.min.js"></script>
+<script src="/app/js/app.js"></script>
+<script src="/app/js/controller/mainController.js"></script>
+<script src="/app/js/controller/modalController.js"></script>
+<script src="/app/js/services/searchDetails.js"></script>
+
+</body>
+</html>
